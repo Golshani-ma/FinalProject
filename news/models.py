@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
@@ -5,7 +6,7 @@ from django.urls import reverse
 # Create your models here.
 class Post(models.Model):
     # image = models.ImageField(default='blog/defaults.jpg')
-    # author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=255)
     content = models.TextField()
     # tags = TaggableManager()

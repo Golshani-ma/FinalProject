@@ -21,7 +21,8 @@ from news.views import *
 app_name = 'news'
 
 urlpatterns = [
-    path('', single_view, name='single_news'),
+
+    path('<int:pid>', news_single, name='news_single'),
     # path('contact', contact_view, name='contact'),
     # path('about', about_view, name='about'),
     # path('test', test_view, name='test'),
