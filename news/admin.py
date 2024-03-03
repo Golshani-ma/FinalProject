@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from news.models import Post
+from news.models import Post, Category
 
 
 # class PostAdmin(SummernoteModelAdmin):
@@ -19,3 +19,4 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(Category)

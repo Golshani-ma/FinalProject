@@ -6,8 +6,9 @@ from news.models import Post
 def home_view(request):
     posts_rotated = list(Post.objects.filter(status=1))[:3]
     posts_static = list(Post.objects.filter(status=1))[3:7]
+    posts_total = list(Post.objects.filter(status=1))[7:]
 
-    context = {'posts_rotated': posts_rotated, 'posts_static': posts_static}
+    context = {'posts_rotated': posts_rotated, 'posts_static': posts_static, 'posts_total': posts_total}
     # context = {'posts_rotated': posts_rotated}
     return render(request, 'website/index.html', context)
 
