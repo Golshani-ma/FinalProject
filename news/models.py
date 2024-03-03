@@ -5,7 +5,7 @@ from django.urls import reverse
 
 # Create your models here.
 class Post(models.Model):
-    # image = models.ImageField(default='blog/defaults.jpg')
+    image = models.ImageField(default='news/default.jpg')
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=255)
     content = models.TextField()
