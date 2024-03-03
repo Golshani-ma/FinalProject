@@ -3,6 +3,13 @@ from django.db import models
 from django.urls import reverse
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
 # Create your models here.
 class Post(models.Model):
     image = models.ImageField(default='news/im')
@@ -10,7 +17,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     # tags = TaggableManager()
-    # category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category)
     counted_views = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
     login_required = models.BooleanField(default=False)
