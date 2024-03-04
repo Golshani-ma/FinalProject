@@ -21,10 +21,10 @@ def snippet_func(value, arg=20):
     return value[:arg] + '...'
 
 
-# @register.inclusion_tag('populerpost.html')
-# def popular_posts():
-#     posts = Post.objects.filter(status=1).order_by('-published_date')[:2]
-#     return {'posts': posts}
+@register.inclusion_tag('news/populernews.html')
+def popular_news(num=5):
+    posts = Post.objects.filter(status=1).order_by('-counted_views')[:num]
+    return {'posts': posts}
 
 
 @register.inclusion_tag('news/last_news.html')
