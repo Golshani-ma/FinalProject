@@ -5,11 +5,13 @@
         <div class="mb-3">
             <div class="mb-2">
                 {% for cat in post.category.all %}
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">{{ cat.name }}</a>
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                       href="{% url 'website:category' cat_name=cat.name %}">{{ cat.name }}</a>
                 {% endfor %}
                 <a class="text-body" href=""><small>{{ post.published_date|date:"d M Y" }}</small></a>
             </div>
-            <a class="small text-body text-uppercase font-weight-medium" href="{% url 'news:news_single'  pid=post.id %}">{{ post.title|truncatewords:10 }}</a>
+            <a class="small text-body text-uppercase font-weight-medium"
+               href="{% url 'news:news_single'  pid=post.id %}">{{ post.title|truncatewords:10 }}</a>
         </div>
     {% endfor %}
 

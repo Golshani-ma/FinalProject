@@ -9,7 +9,7 @@
             {% for name,items in categories.items %}
 
 
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">{{ name }}    {{ items }}</a>
+                    <a href="{% url 'website:category' cat_name=cat.name %}" class="btn btn-sm btn-outline-secondary m-1">{{ name }}    {{ items }}</a>
 
             {% endfor %}
 

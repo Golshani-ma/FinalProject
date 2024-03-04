@@ -1,20 +1,14 @@
 <!-- Tags Start -->
 <div class="mb-3">
     <div class="section-title mb-0">
-        <h4 class="m-0 text-uppercase font-weight-bold">تعداد اخبار در هر دسته</h4>
+        <h4 class="m-0 text-uppercase font-weight-bold">تعداد اخبار بر اساس دسته بندی</h4>
     </div>
     <div class="bg-white border border-top-0 p-3">
 
         <div class="d-flex flex-wrap m-n1">
             {% for name,items in categories.items %}
-
-
-{#                    <a href="" class="btn btn-sm btn-outline-secondary m-1">{{ name }} {{ items }}</a>#}
-                    <a href="" class="btn btn-outline-secondary m-1">{{ name }}  &ensp; &emsp; {{ items }}</a>
-
+                    <a href="{% url 'website:category' cat_name=name %}" class="btn btn-outline-secondary m-1">{{ name }}  &ensp; &emsp; {{ items }}</a>
             {% endfor %}
-
-
         </div>
     </div>
 </div>

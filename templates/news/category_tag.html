@@ -2,15 +2,7 @@
     <h5 class="mb-4 text-white text-uppercase font-weight-bold">دسته بندی</h5>
     <div class="m-n1">
         {% for name,items in categories.items %}
-
-            <a href="" class="btn btn-sm btn-secondary m-1">{{ name }}</a>
-{#                <a href="{% url 'blog:category' cat_name=name %}" class="d-flex justify-content-between">#}
-{#                    <p>{{ name }}</p>#}
-{#                    <p>{{ items }}</p>#}
-{#                </a>#}
-
+            <a href="{% url 'website:category' cat_name=name %}" class="btn btn-sm btn-secondary m-1">{{ name }}</a>
         {% endfor %}
-
-
     </div>
 </div>
