@@ -35,18 +35,18 @@ def home_view(request, **kwargs):
         posts_rotated = posts_rotated.filter(tags__name__in=[kwargs['tag_name']])
         posts_static = posts_static.filter(tags__name__in=[kwargs['tag_name']])
         posts_total = posts_total.filter(tags__name__in=[kwargs['tag_name']])
-    # try:
-    #     posts_total = Paginator(posts_total, 3)
-    #     page_number = request.GET.get("page")
-    #     posts_total = posts_total.get_page(page_number)
-    # except PageNotAnInteger:
-    #     posts_total = posts_total.get_page(1)
-    # except EmptyPage:
-    #     posts_total = posts_total.get_page(posts_total.num_pages)
+    try:
+        posts_total = Paginator(posts_total, 6)
+        page_number = request.GET.get("page")
+        posts_total = posts_total.get_page(page_number)
+    except PageNotAnInteger:
+        posts_total = posts_total.get_page(1)
+    except EmptyPage:
+        posts_total = posts_total.get_page(posts_total.num_pages)
 
     posts_rotated = list(posts_rotated)[:3]
     posts_static = list(posts_static)[3:7]
-    posts_total = list(posts_total)[7:]
+    # posts_total = list(posts_total)[7:]
 
     context = {'posts_rotated': posts_rotated, 'posts_static': posts_static, 'posts_total': posts_total}
 
