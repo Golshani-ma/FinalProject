@@ -27,6 +27,6 @@ urlpatterns = [
     path('author/<str:author_username>', home_view, name='author'),
     # path('about', about_view, name='about'),
     # path('test', test_view, name='test'),
-    # path('newsletter', newsletter_view, name='newsletter'),
+    path('newsletter', newsletter_view, name='newsletter'),
 
 ]

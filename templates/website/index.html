@@ -165,7 +165,7 @@
                             </ul>
                         </nav>
 
-                    {#                    Paging  . . . .#}
+                        {#                    Paging  . . . .#}
 
 
                     </div>
@@ -245,25 +245,28 @@
                         </div>
                     </div>
                     <!-- Popular News End -->
-
-                    <!-- Newsletter Start -->
-                    <div class="mb-3">
-                        <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
-                        </div>
-                        <div class="bg-white text-center border border-top-0 p-3">
-                            <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                            <div class="input-group mb-2" style="width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Email">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
-                                </div>
+                    <form action="{% url 'website:newsletter' %}"  method="post">
+                        {% csrf_token %}
+                        <!-- Newsletter Start -->
+                        <div class="mb-3">
+                            <div class="section-title mb-0">
+                                <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
                             </div>
-                            <small>Lorem ipsum dolor sit amet elit</small>
-                        </div>
-                    </div>
-                    <!-- Newsletter End -->
+                            <div class="bg-white text-center border border-top-0 p-3">
+                                <p>ایمیل خود را جهت دریافت خبرنامه وارد کنید</p>
+                                <div class="input-group mb-2" style="width: 100%;">
+                                    <input name="email" type="text" class="form-control form-control-lg"
+                                           placeholder="ایمیل ">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary font-weight-bold px-3">Sign Up
+                                        </button>
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+                        <!-- Newsletter End -->
+                    </form>
                     {% news_post_categories_side %}
 
                 </div>
