@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 
     <!-- Featured News Slider Start -->
     <div class="container-fluid pt-5 mb-3">
@@ -17,7 +18,7 @@
                                href="{% url 'website:category' cat_name=cat.name %}">{{ cat.name }}</a>
                                     {% endfor %}
 
-                            <a class="text-white" href=""><small>{{ post.published_date|date:"d M Y" }}</small></a>
+                            <a class="text-white" href=""><small>{{ post.published_date|naturaltime }}</small></a>
                         </div>
                         <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{% url 'news:news_single'  pid=post.id %}">{{ post.title|truncatewords:10 }}</a>
                     </div>

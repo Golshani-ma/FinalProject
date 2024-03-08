@@ -1,6 +1,6 @@
 {% load static %}
 {% load news_tag %}
-
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,10 +119,11 @@
     </nav>
 </div>
 <!-- Navbar End -->
-
+{% include 'messages.html' %}
 {% block content %}
 
 {% endblock content %}
+
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5 mt-5">

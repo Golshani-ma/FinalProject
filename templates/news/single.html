@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 {% load news_tag %}
 {% block content %}
 
@@ -37,7 +38,7 @@
                                 {% endfor %}
 
                                 <a class=" text-body" href="">
-                                    {{ post.published_date|date:"d M Y" }}
+                                    {{ post.published_date|naturaltime }}
                                 </a>
                             </div>
                             <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">{{ post.title }}</h1>
