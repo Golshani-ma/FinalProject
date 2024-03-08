@@ -14,9 +14,4 @@ class Contact(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        # db_table_comment = "Contact Table"
-
-class NewsLetter(models.Model):
-    email = models.EmailField()
-    def __str__(self):
-        return self.email
+        db_table_comment = "Contact Table"
