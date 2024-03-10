@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 {% load news_tag %}
 {% block content %}
 
@@ -23,7 +24,7 @@
                                         </a>
                                     {% endfor %}
 
-                                    <a class="text-white" href="">{{ post.published_date|date:"d M Y" }}</a>
+                                    <a class="text-white" href="">{{ post.published_date|naturaltime }}</a>
                                 </div>
                                 <a class="h2 m-0 text-white text-uppercase font-weight-bold"
                                    href="{% url 'news:news_single'  pid=post.id %}">{{ post.title|truncatewords:10 }}</a>
@@ -55,7 +56,7 @@
                                         {% endfor %}
 
                                         <a class="text-white"
-                                           href=""><small>{{ post.published_date|date:"d M Y" }}</small></a>
+                                           href=""><small>{{ post.published_date|naturaltime }}</small></a>
                                     </div>
                                     <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
                                        href="{% url 'news:news_single'  pid=post.id %}">{{ post.title|truncatewords:10 }}</a>
@@ -99,7 +100,7 @@
                                                     </a>
                                                 {% endfor %}
                                                 <a class="text-body"
-                                                   href=""><small>{{ post.published_date|date:"d M Y" }}</small></a>
+                                                   href=""><small>{{ post.published_date|naturaltime }}</small></a>
                                             </div>
                                             <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
                                                href="{% url 'news:news_single'  pid=post.id %}">{{ post.title|truncatewords:10 }}</a>
@@ -247,6 +248,7 @@
                     <!-- Popular News End -->
 
                     <!-- Newsletter Start -->
+
                     <div class="mb-3">
                         <div class="section-title mb-0">
                             <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
@@ -254,10 +256,16 @@
                         <div class="bg-white text-center border border-top-0 p-3">
                             <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
                             <div class="input-group mb-2" style="width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Email">
+                                <form action="{% url 'website:newsletter' %}" method="post">
+                                    {% csrf_token %}
+
+
+                                <input name="email" type="text" class="form-control form-control-lg" placeholder="Your Email">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
                                 </div>
+                                  </form>
+
                             </div>
                             <small>Lorem ipsum dolor sit amet elit</small>
                         </div>

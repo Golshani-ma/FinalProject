@@ -1,8 +1,11 @@
+from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils import timezone
 
 from news.models import Post
+from website.forms import ContactForm, NewsletterForm
 
 
 # Create your views here.
@@ -54,4 +57,24 @@ def home_view(request, **kwargs):
 
 
 def contact_view(request):
-    return render(request, 'website/contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+
+            form.save()
+            messages.success(request, 'اطلاعات شما با موفقیت ثبت شد.')
+        else:
+            messages.error(request, 'متاسفانه خطایی پیش آمده. مجددا امتحان کنید.')
+
+    form = ContactForm()
+    return render(request, 'website/contact.html', {'form': form})
+
+
+def newsletter_view(request):
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+        else:
+            return HttpResponseRedirect('/')
