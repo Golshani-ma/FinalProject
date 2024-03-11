@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.contrib.sitemaps.views import sitemap
 from FinalProject import settings
 from news.sitemaps import NewsSitemap
@@ -33,6 +33,9 @@ urlpatterns = [
 
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps},
          name="django.contrib.sitemaps.views.sitemap"),
+    re_path(r'^robots\.txt', include('robots.urls')),
+    path('summernote/', include('django_summernote.urls')),
+    path('captcha/', include('captcha.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
