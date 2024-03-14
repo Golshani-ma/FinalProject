@@ -16,6 +16,8 @@ Including another URLconf
 """
 
 from django.urls import path
+
+from news.feed import LatestEntriesFeed
 from news.views import *
 
 app_name = 'news'
@@ -24,9 +26,6 @@ urlpatterns = [
 
     path('<int:pid>', news_single, name='news_single'),
     path('search/', news_search, name='search'),
-    # path('contact', contact_view, name='contact'),
-    # path('about', about_view, name='about'),
+    path("rss/feed/", LatestEntriesFeed()),
     # path('test', test_view, name='test'),
-    # path('newsletter', newsletter_view, name='newsletter'),
-
 ]

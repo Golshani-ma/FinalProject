@@ -46,8 +46,14 @@ INSTALLED_APPS = [
 
     'website.apps.WebsiteConfig',
     'news.apps.NewsConfig',
+    'accounts.apps.AccountsConfig'
 ]
-
+AUTHENTICATION_BACKENDS = [
+    'accounts.EmailUsernameBackend.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+EMAIL_HOST_USER = 'YourGmailAccount@gmail.com'
+EMAIL_HOST_PASSWORD = 'App Password Genarated By Gmail, 2 Verification Step should Be Activited '
 # Site
 SITE_ID = 2
 

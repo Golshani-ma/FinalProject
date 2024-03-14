@@ -33,6 +33,8 @@ def latest_post_down(num=3):
     return {'posts': posts}
 
 
+
+
 @register.inclusion_tag('news/category_tag.html')
 def news_post_categories():
     posts = Post.objects.filter(status=1)

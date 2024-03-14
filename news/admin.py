@@ -22,6 +22,7 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category)
 
+
 class CommentAdmin(admin.ModelAdmin):
     date_hierarchy = 'create_date'
     empty_value_display = '-empty-'
