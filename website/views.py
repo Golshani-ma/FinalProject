@@ -55,7 +55,6 @@ def home_view(request, **kwargs):
 
     return render(request, 'website/index.html', context)
 
-
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -68,6 +67,10 @@ def contact_view(request):
 
     form = ContactForm()
     return render(request, 'website/contact.html', {'form': form})
+
+def about_view(request):
+
+    return render(request, 'website/about.html')
 
 
 def newsletter_view(request):

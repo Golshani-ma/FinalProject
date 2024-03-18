@@ -23,6 +23,7 @@ app_name = 'website'
 urlpatterns = [
     path('', home_view, name='index'),
     path('contact', contact_view, name='contact'),
+    path('about', about_view, name='about'),
     path('category/<str:cat_name>', home_view, name='category'),
     path('author/<str:author_username>', home_view, name='author'),
     # path('about', about_view, name='about'),
